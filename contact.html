@@ -30,7 +30,26 @@
     </div>
     <a href="rdv.html" class="btn-nav" id="nav-cta" data-i18n="nav_cta">Réserver un RDV</a>
   </div>
+
+  <button class="nav-burger" id="nav-burger" onclick="toggleMobileMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <ul class="mobile-menu-links">
+    <li><a href="services.html" data-i18n="nav_services" onclick="closeMobileMenu()">Services</a></li>
+    <li><a href="rdv.html" class="mobile-btn-highlight" data-i18n="nav_rdv" onclick="closeMobileMenu()">Prendre RDV</a></li>
+    <li><a href="qui-sommes-nous.html" data-i18n="nav_about" onclick="closeMobileMenu()">Qui sommes-nous ?</a></li>
+    <li><a href="contact.html" data-i18n="nav_contact" onclick="closeMobileMenu()">Contact</a></li>
+  </ul>
+  <div class="mobile-lang-switcher">
+    <button class="lang-btn active" id="mobile-lang-fr" onclick="setLanguage('fr')">FR</button>
+    <button class="lang-btn" id="mobile-lang-en" onclick="setLanguage('en')">EN</button>
+    <button class="lang-btn" id="mobile-lang-ar" onclick="setLanguage('ar')">ع</button>
+  </div>
+</div>
+<div class="mobile-menu-overlay" id="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
 
 <div class="section-divider"></div>
 
@@ -157,7 +176,6 @@
     </div>
   </div>
 </div>
-
 
 <script src="script.js"></script>
 
