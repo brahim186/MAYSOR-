@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nos Services | Rihanio</title>
-<meta name="description" content="Découvrez les services de Rihanio : gestion des réseaux sociaux, création de sites internet, gestion Airbnb et étude de rentabilité immobilière.">
+<title>Prendre Rendez-vous | Rihanio</title>
+<meta name="description" content="Réservez votre rendez-vous en ligne avec l'équipe Rihanio.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -53,103 +53,49 @@
 
 <div class="section-divider"></div>
 
-<section class="services" id="services">
-  <span class="section-label" data-i18n="services_label">Nos expertises</span>
-  <h2 class="section-title"><span data-i18n="services_title">Des solutions <span>complètes</span> sur mesure</span></h2>
-
-  <div class="bento">
-    <div class="bento-card wide">
-      <div class="card-glow glow-purple"></div>
-      <div class="card-num">01</div>
-      <div class="card-icon icon-purple">
-        <img src="https://i.ibb.co/Qh3PHsp/image.png" alt="Gestion des Réseaux Sociaux">
+<section class="booking-section" id="rdv">
+  <div class="booking-box" style="text-align: center;">
+    <span class="section-label" style="display:block;margin-bottom:14px;color:var(--lime);" data-i18n="rdv_label">Planification</span>
+    <h2><span data-i18n="rdv_title">Réserver un</span> <span style="color:var(--lime)" data-i18n="rdv_title2">Rendez-vous</span></h2>
+    <p data-i18n="rdv_sub">Choisissez un créneau disponible (Lundi, Mercredi ou Vendredi) et recevez votre confirmation par e-mail.</p>
+    
+    <form class="booking-form" id="main-booking-form" onsubmit="submitBooking(event)">
+      <div class="full-width">
+        <label for="bk-name" data-i18n="bk_name">Nom complet</label>
+        <input type="text" id="bk-name" required placeholder="Votre nom complet" data-i18n-ph="bk_name_ph">
       </div>
-      <h3 class="card-title" data-i18n="s1_title">Gestion des Réseaux Sociaux</h3>
-      <div class="card-text" data-i18n="s1_text">Création de contenu complet (visuels et textes), planification des publications, and animation quotidienne de vos communautés pour bâtir une présence forte et engagée.</div>
-    </div>
-
-    <div class="bento-card narrow">
-      <div class="card-glow glow-lime"></div>
-      <div class="card-num">02</div>
-      <div class="card-icon icon-lime">
-        <img src="https://i.ibb.co/RkWTf6dw/image.png" alt="Création de Site Internet">
+      <div>
+        <label for="bk-email" data-i18n="bk_email">Adresse e-mail</label>
+        <input type="email" id="bk-email" required placeholder="exemple@mail.com">
       </div>
-      <h3 class="card-title" data-i18n="s2_title">Création de Site Internet</h3>
-      <div class="card-text" data-i18n="s2_text">Conception et développement de sites vitrines et de boutiques e-commerce modernes, rapides et adaptés aux mobiles.</div>
-    </div>
-
-    <div class="bento-card full">
-      <div class="card-glow glow-yellow"></div>
-      <div class="card-pill">Service Premium</div>
-      <div style="display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap;">
-        <div style="flex:0 0 auto;">
-          <div class="card-num">03</div>
-          <div class="card-icon icon-yellow">
-            <img src="https://i.ibb.co/LXfP8x1N/image.png" alt="Gestion Airbnb & Locations Saisonnières">
+      <div>
+        <label for="bk-phone" data-i18n="bk_phone">Numéro de téléphone</label>
+        <input type="tel" id="bk-phone" required placeholder="+212...">
+      </div>
+      <div class="date-input-wrapper">
+        <label for="bk-date">Date du rendez-vous</label>
+        <input type="text" id="bk-date" required readonly placeholder="Choisir une date..." onclick="toggleCalendarPopup(event)">
+        
+        <div class="calendar-popup" id="custom-calendar-popup">
+          <div class="calendar-header">
+            <button type="button" onclick="changeCalendarMonth(-1)">❬</button>
+            <span id="calendar-month-year"></span>
+            <button type="button" onclick="changeCalendarMonth(1)">❭</button>
           </div>
-        </div>
-        <div style="flex:1;min-width:260px;">
-          <h3 class="card-title" data-i18n="s3_title">Gestion Airbnb & Locations Saisonnières</h3>
-          <div class="card-text" data-i18n="s3_text">Prise en charge intégrale de vos biens en location de courte durée. Nous optimisons vos annonces pour maximiser le taux d'occupation, gérons la communication avec les voyageurs 24/7, coordonnons les entrées/sorties (check-in/out) et mettons en place des stratégies pour offrir une expérience client irréprochable.</div>
-        </div>
-        <div style="flex:0 0 auto;display:flex;flex-direction:column;gap:10px;margin-top:4px;">
-          <div style="background:rgba(234,255,7,0.08);border:1px solid rgba(234,255,7,0.15);border-radius:10px;padding:12px 18px;text-align:center;">
-            <div style="font-size:22px;font-weight:800;color:var(--yellow);">24/7</div>
-            <div style="font-size:11px;color:var(--gray-text);">Support voyageurs</div>
+          <div class="calendar-weekdays">
+            <div>Dim</div><div>Lun</div><div>Mar</div><div>Mer</div><div>Jeu</div><div>Ven</div><div>Sam</div>
           </div>
-          <div style="background:rgba(234,255,7,0.08);border:1px solid rgba(234,255,7,0.15);border-radius:10px;padding:12px 18px;text-align:center;">
-            <div style="font-size:22px;font-weight:800;color:var(--yellow);">+40%</div>
-            <div style="font-size:11px;color:var(--gray-text);">Revenus moyens</div>
-          </div>
+          <div class="calendar-days" id="calendar-days-container"></div>
         </div>
       </div>
-    </div>
-
-    <div class="bento-card half">
-      <div class="card-glow glow-pink"></div>
-      <div class="card-num">04</div>
-      <div class="card-icon icon-pink">
-        <img src="https://i.ibb.co/b55bV4Xc/image.png" alt="Étude de Rentabilité & Modélisation Financière">
+      <div>
+        <label for="bk-time">Heure disponible</label>
+        <select id="bk-time" required disabled>
+          <option value="">Sélectionnez d'abord une date</option>
+        </select>
       </div>
-      <h3 class="card-title" data-i18n="s4_title">Étude de Rentabilité & Modélisation Financière</h3>
-      <div class="card-text" data-i18n="s4_text">Nous aidons les entrepreneurs et les investisseurs immobiliers à valider la viabilité financière de leurs projets avant de s'engager.</div>
-    </div>
-
-    <div class="bento-card full">
-      <div class="card-glow" style="background:linear-gradient(135deg,#e040fb,#7c4dff);bottom:-40px;right:-40px;width:160px;height:160px;border-radius:50%;opacity:0.13;position:absolute;pointer-events:none;"></div>
-      <div style="display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap;">
-        <div style="flex:0 0 auto;">
-          <div class="card-num">05</div>
-          <div class="card-icon" style="background:rgba(224,64,251,0.12);">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e040fb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
-          </div>
-        </div>
-        <div style="flex:1;min-width:260px;">
-          <div class="card-pill" style="background:rgba(224,64,251,0.1);color:#e040fb;border-color:rgba(224,64,251,0.25);" data-i18n="s5_pill">Rihanio Studio</div>
-          <h3 class="card-title" data-i18n="s5_title">Services Audiovisuels Événementiels</h3>
-          <div class="card-text" data-i18n="s5_text">Rihanio Studio accompagne vos événements avec une expertise audiovisuelle sur-mesure. Nous capturons l'essence de vos moments forts à travers une approche cinématographique et professionnelle.</div>
-        </div>
-        <div style="flex:0 0 auto;display:flex;flex-direction:column;gap:10px;margin-top:4px;">
-          <div style="background:rgba(224,64,251,0.08);border:1px solid rgba(224,64,251,0.2);border-radius:10px;padding:12px 18px;text-align:center;">
-            <div style="font-size:22px;font-weight:800;color:#e040fb;">🎬</div>
-            <div style="font-size:11px;color:var(--gray-text);" data-i18n="s5_stat1">Cinématographique</div>
-          </div>
-          <div style="background:rgba(224,64,251,0.08);border:1px solid rgba(224,64,251,0.2);border-radius:10px;padding:12px 18px;text-align:center;">
-            <div style="font-size:22px;font-weight:800;color:#e040fb;">🎤</div>
-            <div style="font-size:11px;color:var(--gray-text);" data-i18n="s5_stat2">Sur-mesure</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="bento-card half" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:linear-gradient(135deg,rgba(94,23,235,0.25),rgba(94,23,235,0.05));border-color:rgba(94,23,235,0.3);">
-      <div class="cta-icon-box">
-        <img src="https://i.ibb.co/Kj0pV6Lx/image.png" alt="Prêt à scaler">
-      </div>
-      <div style="font-size:18px;font-weight:700;margin-bottom:10px;letter-spacing:-0.02em;" data-i18n="cta_card_title">Prêt à scaler ?</div>
-      <div style="font-size:13px;color:var(--gray-text);margin-bottom:24px;" data-i18n="cta_card_text">Discutons de vos objectifs and construisons ensemble votre stratégie de croissance.</div>
-      <a href="rdv.html" class="btn-primary" style="font-size:13px;padding:11px 22px;" data-i18n="cta_card_btn">Prendre rendez-vous →</a>
-    </div>
+      <button type="submit" class="btn-booking" data-i18n="bk_btn">Confirmer le rendez-vous</button>
+    </form>
   </div>
 </section>
 
