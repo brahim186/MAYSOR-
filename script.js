@@ -1,4 +1,4 @@
-  // ── EmailJS Init ──
+// ── EmailJS Init ──
   emailjs.init("tZynjADm4ILCFGfql");
 
   let currentYear, currentMonth;
@@ -951,9 +951,12 @@ Agence Digitale & Management`;
     currentLang = lang;
     const t = translations[lang];
 
-    // Update active button
+    // Update active button (desktop + mobile switchers)
     ['fr','en','ar'].forEach(l => {
-      document.getElementById('lang-' + l).classList.toggle('active', l === lang);
+      const desktopBtn = document.getElementById('lang-' + l);
+      if (desktopBtn) desktopBtn.classList.toggle('active', l === lang);
+      const mobileBtn = document.getElementById('mobile-lang-' + l);
+      if (mobileBtn) mobileBtn.classList.toggle('active', l === lang);
     });
 
     // Set page direction
@@ -986,3 +989,19 @@ Agence Digitale & Management`;
   // Init on load : reprend la dernière langue choisie, sinon français par défaut
   setLanguage(localStorage.getItem('rihanio_lang') || 'fr');
 
+  /* ------------------------------------------- */
+  /* MENU MOBILE (hamburger)                      */
+  /* ------------------------------------------- */
+  function toggleMobileMenu() {
+    document.getElementById('nav-burger').classList.toggle('open');
+    document.getElementById('mobile-menu').classList.toggle('open');
+    document.getElementById('mobile-menu-overlay').classList.toggle('open');
+    document.body.classList.toggle('mobile-menu-active');
+  }
+
+  function closeMobileMenu() {
+    document.getElementById('nav-burger').classList.remove('open');
+    document.getElementById('mobile-menu').classList.remove('open');
+    document.getElementById('mobile-menu-overlay').classList.remove('open');
+    document.body.classList.remove('mobile-menu-active');
+  }
